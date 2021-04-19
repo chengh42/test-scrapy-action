@@ -36,7 +36,7 @@ jobs:
     - name: Upload crawled data and scrapy log
       uses: actions/upload-artifact@v2
       with:
-        path: 
+        path: |
           data/*.csv
           crawler/*.log
         retention-days: 5
