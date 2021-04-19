@@ -7,11 +7,29 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
+import os
+import logging
+from datetime import datetime
+
 BOT_NAME = 'demo'
 
 SPIDER_MODULES = ['demo.spiders']
 NEWSPIDER_MODULE = 'demo.spiders'
 
+# Logging settings
+LOG_LEVEL = logging.INFO
+
+# set up scrapy-[timestamp].log file
+log_filepath = os.path.join(os.path.dirname(__file__), "../scrapy-%s.log" % datetime.now().strftime("%Y-%m-%d-%H%M"))
+if not (os.path.isfile(log_filepath)):
+    with open(log_filepath, 'w') as fp:
+        pass
+
+logging.basicConfig(
+    filename=log_filepath,
+    format='%(levelname)s: %(message)s',
+    level=logging.DEBUG
+)
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'demo (+http://www.yourdomain.com)'
