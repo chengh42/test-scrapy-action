@@ -28,6 +28,8 @@ jobs:
       run: |
         cd crawler
         python -m scrapy crawl quotes
+    - name: List files in directory
+      run: |
         cd ..
         ls -lR
     - name: Upload crawled data and scrapy log
