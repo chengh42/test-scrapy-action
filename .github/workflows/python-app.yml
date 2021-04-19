@@ -37,4 +37,5 @@ jobs:
       with:
         path: 
           data/*.csv
+          crawler/*.log
         retention-days: 5
